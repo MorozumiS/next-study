@@ -1,5 +1,5 @@
 import Header from "@/components/Header";
-import Main from "@/components/main/Main";
+import ItemComponent from "@/components/main/Main";
 
 export default function Home() {
   const items = [
@@ -24,10 +24,20 @@ export default function Home() {
       price: "2500円",
     },
   ];
+
   return (
     <div>
       <Header />
-      <Main />
+      <div>
+        <h2 className="sc-b5944ad1-1 birybB" style={{ color: "#000" }}>
+          <span className="sc-b9519356-0 1kCzRl">あなたへのおすすめ</span>
+        </h2>
+        <div className="sc-fa55e732-0 kptqmo">
+          {items.map((item, index) => (
+            <ItemComponent key={index} item={item} index={index} />
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
