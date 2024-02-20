@@ -29,10 +29,10 @@ export default function Home() {
     <div>
       <Header />
       <div>
-        <h2 className="sc-b5944ad1-1 birybB" style={{ color: "#000" }}>
-          <span className="sc-b9519356-0 1kCzRl">あなたへのおすすめ</span>
+        <h2 className="" style={{ color: "#000" }}>
+          <span className="">あなたへのおすすめ</span>
         </h2>
-        <div className="sc-fa55e732-0 kptqmo">
+        <div className="" style={{ display: "flex" }}>
           {items.map((item, index) => (
             <ItemComponent key={index} item={item} index={index} />
           ))}
