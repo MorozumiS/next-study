@@ -15,7 +15,7 @@ const ItemComponent: React.FC<Props> = ({ item, index }) => {
     <div key={index} css={itemWrapperStyle}>
       <a href={`Litem/${index + 1}`} data-cl-nofollow="on">
         <div css={overlayStylePrice}>
-          <p>{item.price}</p>
+          <p css={priceTextStyle}>{item.price}</p>
         </div>
         <div css={overlayStyle}>
           <button>いいね！</button>
@@ -29,8 +29,8 @@ const ItemComponent: React.FC<Props> = ({ item, index }) => {
 export default ItemComponent;
 
 const imageStyle = css({
-  width: "100px",
-  height: "100px",
+  width: "161px",
+  height: "161px",
   borderRadius: "8px",
   marginRight: "16px",
 });
@@ -38,8 +38,8 @@ const imageStyle = css({
 const itemWrapperStyle = css({
   position: "relative", // 要素を相対的に配置
   display: "inline-block", // インラインブロック要素設定
-  marginRight: "16px",
-  marginBottom: "16px",
+  // marginRight: "16px",
+  // marginBottom: "16px",
 });
 
 const linkStyle = css({
@@ -50,14 +50,21 @@ const overlayStylePrice = css({
   position: "absolute", // 要素を絶対的に配置
   bottom: -10, // 下端に配置
   left: 0, // 左端に配置
-  width: "100%", // 幅設定
+  width: "50%", // 幅設定
   height: "auto",
 });
 
 const overlayStyle = css({
-  position: "absolute", // 要素を絶対的に配置する
-  bottom: -10, // 下端に配置
-  left: 60, // 左端に配置
+  position: "absolute", // 要素を絶対的に配置
+  bottom: 0, // 下端に配置
+  right: 40, // 右端に配置
   width: "10%", // 幅設定
   padding: "2px",
+});
+
+const priceTextStyle = css({
+  fontWeight: "bold", // 太さ
+  color: "white", // 色
+  fontFamily:
+    "メイリオ, Meiryo, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', sans-serif", // フォントファミリー
 });
