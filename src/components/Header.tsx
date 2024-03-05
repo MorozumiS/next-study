@@ -5,14 +5,14 @@ export default function Header() {
     <div>
       <div>
         <header>
-          <div>
+          <div css={wrapperStyle}>
             <img css={imageStyle} alt="Yahoo!フリマ" src="/yahoo.svg" />
+            <div css={rightStyle}>
+              <a href="https://www.yahoo.co.jp/">Yahoo! JAPAN</a>
+              <p css={mypageStyle}>マイページ</p>
+            </div>
           </div>
-          <div css={rightStyle}>
-            <a href="https://www.yahoo.co.jp/">Yahoo! JAPAN</a>
-            <p css={mypageStyle}>マイページ</p>
-          </div>
-          <div style={{ display: "flex" }}>
+          <div style={{ display: "flex", justifyContent: "center" }}>
             <input
               type="search"
               autoComplete="off"
@@ -35,7 +35,7 @@ export default function Header() {
             </button>
 
             <ul
-              className=""
+              className="category-search"
               style={{ display: "flex", listStyleType: "none", padding: 0 }}>
               <li className="" style={{ textDecoration: "none" }}>
                 <a
@@ -43,7 +43,7 @@ export default function Header() {
                   href="/category"
                   style={{ textDecoration: "none" }}>
                   <img src="/category.svg" alt="カテゴリ検索" />
-                  <span className="" style={{ color: "red" }}>
+                  <span className="" style={{ color: "red", fontSize: "12px" }}>
                     カテゴリから探す
                   </span>
                 </a>
@@ -55,7 +55,12 @@ export default function Header() {
                   className=""
                   style={{ textDecoration: "none" }}>
                   <img src="/brand.svg" alt="ブランド検索" />
-                  <span className="" style={{ color: "red" }}>
+                  <span
+                    className=""
+                    style={{
+                      color: "red",
+                      fontSize: "12px",
+                    }}>
                     ブランドから探す
                   </span>
                 </a>
