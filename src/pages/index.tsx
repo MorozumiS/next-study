@@ -32,19 +32,26 @@ export default function Home() {
   }
 
   return (
-    <div>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+      }}>
       <Header />
-      <div>
+      <div style={{ textAlign: "left" }}>
         <h2 className="" style={{ color: "#000" }}>
           <span className="">あなたへのおすすめ</span>
         </h2>
-        {chunkedItems.map((chunk, index) => (
-          <div key={index} style={{ display: "flex" }}>
-            {chunk.map((item, innerIndex) => (
-              <ItemComponent key={innerIndex} item={item} index={0} />
-            ))}
-          </div>
-        ))}
+        <div style={{ justifyContent: "center" }}>
+          {chunkedItems.map((chunk, index) => (
+            <div key={index} style={{ display: "flex" }}>
+              {chunk.map((item, innerIndex) => (
+                <ItemComponent key={innerIndex} item={item} index={0} />
+              ))}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
