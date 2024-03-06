@@ -1,11 +1,38 @@
 import { css } from "@emotion/react";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
-export default function ItemComponent() {
+interface Item {
+  id: string;
+  image: string;
+  price: string;
+}
+
+interface Props {
+  items: Item[];
+}
+
+export default function ItemComponent({ items }: Props) {
+  const router = useRouter();
+  const { id } = router.query;
+  const [fetchedItem, setFetchedItem] = useState<Item | undefined>(undefined);
+
+  useEffect(() => {
+    if (id && items) {
+      const fetchedItem = items.find((item) => item.id === String(id));
+      setFetchedItem(fetchedItem);
+    }
+  }, [id, items]);
+
+  if (!items || !fetchedItem) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div style={{ backgroundColor: "#F1F1F1" }}>
       <div css={itemContainerStyle}>
         <div css={marginStyle}>
-          <img css={imageStyle} src="/itemUsagi.jpeg" alt="アイテム画像" />
+          <img css={imageStyle} src={fetchedItem.image} alt="アイテム画像" />
         </div>
       </div>
     </div>

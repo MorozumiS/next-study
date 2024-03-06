@@ -4,22 +4,27 @@ import ItemComponent from "@/components/main/Main";
 export default function Home() {
   const items = [
     {
+      id: "1",
       image: "/item.jpeg",
       price: "1800円",
     },
     {
+      id: "2",
       image: "/itemUsagi.jpeg",
       price: "5800円",
     },
     {
+      id: "3",
       image: "/item.jpeg",
       price: "2300円",
     },
     {
+      id: "4",
       image: "/itemUsagi.jpeg",
       price: "10000円",
     },
     {
+      id: "5",
       image: "/item.jpeg",
       price: "2500円",
     },
@@ -47,7 +52,7 @@ export default function Home() {
           {chunkedItems.map((chunk, index) => (
             <div key={index} style={{ display: "flex" }}>
               {chunk.map((item, innerIndex) => (
-                <ItemComponent key={innerIndex} item={item} index={0} />
+                <ItemComponent key={innerIndex} item={item} />
               ))}
             </div>
           ))}
