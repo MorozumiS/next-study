@@ -1,6 +1,27 @@
 import { css } from "@emotion/react";
+import { useRouter } from "next/router";
+import { useState } from "react";
 
-export default function Header() {
+export default function Header({
+  initialSearchQuery,
+}: {
+  initialSearchQuery: any;
+}) {
+  const router = useRouter();
+  const [searchQuery, setSearchQuery] = useState(initialSearchQuery || "");
+
+  const handleSearch = () => {
+    router.push(
+      `/service/search/searchResult?query=${encodeURIComponent(searchQuery)}`
+    );
+  };
+
+  const handleKeyPress = (event: { key: string }) => {
+    if (event.key === "Enter") {
+      handleSearch();
+    }
+  };
+
   return (
     <div>
       <div>
@@ -15,22 +36,18 @@ export default function Header() {
           <div style={{ display: "flex", justifyContent: "center" }}>
             <input
               type="search"
-              autoComplete="off"
-              autoCapitalize="off"
-              autoCorrect="off"
-              name="word"
-              value=""
-              aria-autocomplete="list"
-              aria-controls="react-autowhatever-1"
               placeholder="何をお探しですか?"
               className=""
               style={{ width: "710px", height: "36px" }}
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              onKeyPress={handleKeyPress}
             />
             <button
               type="submit"
-              disabled
               className=""
-              style={{ width: "36px", height: "36px" }}>
+              style={{ width: "36px", height: "36px" }}
+              onClick={handleSearch}>
               <img src="/serch.svg" alt="検索" />
             </button>
 

@@ -30,14 +30,9 @@ export default function Item() {
     },
   ];
 
-  // 4つの要素ごとに分割
-  const chunkedItems = [];
-  for (let i = 0; i < items.length; i += 4) {
-    chunkedItems.push(items.slice(i, i + 4));
-  }
   return (
     <div>
-      <Header />
+      <Header initialSearchQuery={""} />
       <ItemComponent items={items} />
     </div>
   );
