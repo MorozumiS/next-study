@@ -38,8 +38,6 @@ const imageStyle = css({
 const itemWrapperStyle = css({
   position: "relative", // 要素を相対的に配置
   display: "inline-block", // インラインブロック要素設定
-  // marginRight: "16px",
-  // marginBottom: "16px",
 });
 
 const linkStyle = css({

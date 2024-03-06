@@ -81,12 +81,11 @@ const imageStyle = css({
 const wrapperStyle = css({
   display: "flex",
   justifyContent: "space-between",
-  // alignItems: "center",
+  alignItems: "center",
 });
 
 const rightStyle = css({
   display: "flex",
-  // alignItems: "center",
   marginLeft: "auto",
 });
 
