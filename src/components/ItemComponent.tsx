@@ -1,4 +1,5 @@
 import { css } from "@emotion/react";
+import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
@@ -32,7 +33,13 @@ export default function ItemComponent({ items }: Props) {
     <div style={{ backgroundColor: "#F1F1F1" }}>
       <div css={itemContainerStyle}>
         <div css={marginStyle}>
-          <img css={imageStyle} src={fetchedItem.image} alt="アイテム画像" />
+          <Image
+            css={imageStyle}
+            src={fetchedItem.image}
+            alt="アイテム画像"
+            width={460}
+            height={520}
+          />
         </div>
       </div>
     </div>
@@ -51,8 +58,6 @@ const itemContainerStyle = css({
 });
 
 const imageStyle = css({
-  width: "460px",
-  height: "520px",
   objectFit: "cover",
 });
 
