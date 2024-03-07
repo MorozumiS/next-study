@@ -31,10 +31,12 @@ export default function Home() {
   ];
 
   // 4つの要素ごとに分割
-  const chunkedItems = [];
-  for (let i = 0; i < items.length; i += 4) {
-    chunkedItems.push(items.slice(i, i + 4));
-  }
+  const chunkedItems = Array.from(
+    { length: Math.ceil(items.length / 4) },
+    (_, index) => {
+      return items.slice(index * 4, index * 4 + 4);
+    }
+  );
 
   return (
     <div

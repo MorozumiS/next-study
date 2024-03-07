@@ -12,7 +12,12 @@ export default function Header() {
               <p css={mypageStyle}>マイページ</p>
             </div>
           </div>
-          <div style={{ display: "flex", justifyContent: "center" }}>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}>
             <input
               type="search"
               autoComplete="off"
@@ -33,39 +38,50 @@ export default function Header() {
               style={{ width: "36px", height: "36px" }}>
               <img src="/serch.svg" alt="検索" />
             </button>
-
-            <ul
-              className="category-search"
-              style={{ display: "flex", listStyleType: "none", padding: 0 }}>
-              <li className="" style={{ textDecoration: "none" }}>
-                <a
-                  data-cl-nofollow="on"
-                  href="/category"
-                  style={{ textDecoration: "none" }}>
-                  <img src="/category.svg" alt="カテゴリ検索" />
-                  <span className="" style={{ color: "red", fontSize: "12px" }}>
-                    カテゴリから探す
-                  </span>
-                </a>
-              </li>
-              <li className="">
-                <a
-                  data-cl-nofollow="on"
-                  href="/brand"
-                  className=""
-                  style={{ textDecoration: "none" }}>
-                  <img src="/brand.svg" alt="ブランド検索" />
-                  <span
+            <div>
+              <ul
+                className="category-search"
+                style={{ display: "flex", listStyleType: "none", padding: 0 }}>
+                <li>
+                  <a
+                    data-cl-nofollow="on"
+                    href="/category"
+                    style={{
+                      textDecoration: "none",
+                      display: "flex",
+                      alignItems: "center",
+                    }}>
+                    <img src="/category.svg" alt="カテゴリ検索" />
+                    <span
+                      className=""
+                      style={{ color: "red", fontSize: "12px" }}>
+                      カテゴリから探す
+                    </span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    data-cl-nofollow="on"
+                    href="/brand"
                     className=""
                     style={{
-                      color: "red",
-                      fontSize: "12px",
+                      textDecoration: "none",
+                      display: "flex",
+                      alignItems: "center",
                     }}>
-                    ブランドから探す
-                  </span>
-                </a>
-              </li>
-            </ul>
+                    <img src="/brand.svg" alt="ブランド検索" />
+                    <span
+                      className=""
+                      style={{
+                        color: "red",
+                        fontSize: "12px",
+                      }}>
+                      ブランドから探す
+                    </span>
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
         </header>
       </div>
