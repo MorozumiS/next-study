@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import ItemComponent from "@/components/main/Main";
+import { Key } from "react";
 
 export default function Home() {
   const items = [
@@ -31,12 +32,17 @@ export default function Home() {
   ];
 
   // 4つの要素ごとに分割
-  const chunkedItems = Array.from(
-    { length: Math.ceil(items.length / 4) },
-    (_, index) => {
-      return items.slice(index * 4, index * 4 + 4);
+  const chunkedItems: any[][] = [];
+  items.forEach((item, index) => {
+    // 要素の数を計算する
+    const chunkIndex = Math.floor(index / 4);
+    if (!chunkedItems[chunkIndex]) {
+      // 新しい配列を作る
+      chunkedItems[chunkIndex] = [];
     }
-  );
+    // 要素を新しい配列に追加する
+    chunkedItems[chunkIndex].push(item);
+  });
 
   return (
     <div
@@ -47,13 +53,13 @@ export default function Home() {
       }}>
       <Header />
       <div style={{ textAlign: "left" }}>
-        <h2 className="" style={{ color: "#000" }}>
-          <span className="">あなたへのおすすめ</span>
+        <h2 style={{ color: "#000" }}>
+          <span>あなたへのおすすめ</span>
         </h2>
         <div style={{ justifyContent: "center" }}>
           {chunkedItems.map((chunk, index) => (
             <div key={index} style={{ display: "flex" }}>
-              {chunk.map((item, innerIndex) => (
+              {chunk.map((item, innerIndex: Key | null | undefined) => (
                 <ItemComponent key={innerIndex} item={item} />
               ))}
             </div>

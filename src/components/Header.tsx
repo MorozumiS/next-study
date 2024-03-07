@@ -1,4 +1,6 @@
 import { css } from "@emotion/react";
+import Link from "next/link";
+import Image from "next/image";
 
 export default function Header() {
   return (
@@ -6,9 +8,16 @@ export default function Header() {
       <div>
         <header>
           <div css={wrapperStyle}>
-            <img css={imageStyle} alt="Yahoo!フリマ" src="/yahoo.svg" />
+            <Image alt="Yahoo!フリマ" src="/yahoo.svg" width={94} height={20} />
             <div css={rightStyle}>
-              <a href="https://www.yahoo.co.jp/">Yahoo! JAPAN</a>
+              <li
+                style={{
+                  display: "inline",
+                  textDecoration: "none",
+                  marker: "none",
+                }}>
+                <Link href="https://www.yahoo.co.jp/">Yahoo! JAPAN</Link>
+              </li>
               <p css={mypageStyle}>マイページ</p>
             </div>
           </div>
@@ -28,22 +37,20 @@ export default function Header() {
               aria-autocomplete="list"
               aria-controls="react-autowhatever-1"
               placeholder="何をお探しですか?"
-              className=""
               style={{ width: "710px", height: "36px" }}
             />
             <button
               type="submit"
               disabled
-              className=""
               style={{ width: "36px", height: "36px" }}>
-              <img src="/serch.svg" alt="検索" />
+              <Image src="/serch.svg" alt="検索" width={18} height={18} />
             </button>
             <div>
               <ul
                 className="category-search"
                 style={{ display: "flex", listStyleType: "none", padding: 0 }}>
                 <li>
-                  <a
+                  <Link
                     data-cl-nofollow="on"
                     href="/category"
                     style={{
@@ -51,34 +58,40 @@ export default function Header() {
                       display: "flex",
                       alignItems: "center",
                     }}>
-                    <img src="/category.svg" alt="カテゴリ検索" />
-                    <span
-                      className=""
-                      style={{ color: "red", fontSize: "12px" }}>
+                    <Image
+                      src="/category.svg"
+                      alt="カテゴリ検索"
+                      width={24}
+                      height={24}
+                    />
+                    <span style={{ color: "red", fontSize: "12px" }}>
                       カテゴリから探す
                     </span>
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
+                  <Link
                     data-cl-nofollow="on"
                     href="/brand"
-                    className=""
                     style={{
                       textDecoration: "none",
                       display: "flex",
                       alignItems: "center",
                     }}>
-                    <img src="/brand.svg" alt="ブランド検索" />
+                    <Image
+                      src="/brand.svg"
+                      alt="ブランド検索"
+                      width={24}
+                      height={24}
+                    />
                     <span
-                      className=""
                       style={{
                         color: "red",
                         fontSize: "12px",
                       }}>
                       ブランドから探す
                     </span>
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -88,11 +101,6 @@ export default function Header() {
     </div>
   );
 }
-
-const imageStyle = css({
-  width: "94px",
-  height: "20px",
-});
 
 const wrapperStyle = css({
   display: "flex",
