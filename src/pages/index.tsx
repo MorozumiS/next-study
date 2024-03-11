@@ -1,3 +1,4 @@
+import Banner from "@/components/Banner";
 import Header from "@/components/Header";
 import ItemComponent from "@/components/main/Main";
 import { Key } from "react";
@@ -52,6 +53,7 @@ export default function Home() {
         alignItems: "center",
       }}>
       <Header />
+      <Banner />
       <div style={{ textAlign: "left" }}>
         <h2 style={{ color: "#000" }}>
           <span>あなたへのおすすめ</span>
