@@ -1,6 +1,7 @@
 import { css } from "@emotion/react";
 import Link from "next/link";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 export default function Header() {
   return (
@@ -8,7 +9,7 @@ export default function Header() {
       <div>
         <header>
           <div css={wrapperStyle}>
-            <Image alt="Yahoo!フリマ" src="/yahoo.svg" width={94} height={20} />
+            <Image alt="Yahoo!フリマ" src="/logo.svg" width={188} height={34} />
             <div css={rightStyle}>
               <li
                 style={{
@@ -16,11 +17,21 @@ export default function Header() {
                   textDecoration: "none",
                   marker: "none",
                 }}>
-                <Link href="https://www.yahoo.co.jp/">Yahoo! JAPAN</Link>
+                <Link href="https://www.yahoo.co.jp/" css={LinkStyle}>
+                  Yahoo! JAPAN
+                </Link>
               </li>
+              <Image
+                alt="マイページイメージ"
+                src="/prof_default.png"
+                width={34}
+                height={34}
+                css={mypageImage}
+              />
               <p css={mypageStyle}>マイページ</p>
             </div>
           </div>
+
           <div
             style={{
               display: "flex",
@@ -33,11 +44,13 @@ export default function Header() {
               autoCapitalize="off"
               autoCorrect="off"
               name="word"
-              value=""
               aria-autocomplete="list"
               aria-controls="react-autowhatever-1"
               placeholder="何をお探しですか?"
-              style={{ width: "710px", height: "36px" }}
+              style={{
+                width: "712px",
+                height: "34px",
+              }}
             />
             <button
               type="submit"
@@ -111,10 +124,27 @@ const wrapperStyle = css({
 const rightStyle = css({
   display: "flex",
   marginLeft: "auto",
+  alignItems: "center",
+  fontSize: "12px",
 });
 
 const mypageStyle = css({
   marginBottom: "0px",
   marginTop: "0px",
   marginLeft: "8px",
+  fontSize: "14px",
+  fontWeight: "bold",
+});
+
+const mypageImage = css({
+  border: "1px solid rgb(217, 217, 217)",
+  borderRadius: "50%",
+  overflow: "hidden",
+  marginLeft: "8px",
+  marginRight: "8px",
+});
+
+const LinkStyle = css({
+  textDecoration: "none",
+  color: "inherit",
 });
