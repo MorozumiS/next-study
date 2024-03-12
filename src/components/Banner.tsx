@@ -1,52 +1,44 @@
-import { css } from "@emotion/react";
-import Link from "next/link";
+import React from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import Image from "next/image";
-import { useEffect, useState } from "react";
 
 export default function Banner() {
-  const images = [
-    "/webTop_1.png",
-    "/webTop2.png",
-    "/webTop3.png",
-    "/webTop4.png",
-  ];
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, []);
+  const settings = {
+    autoplay: true,
+    autoplaySpeed: 5000,
+    arrows: true,
+    dots: true,
+    vertical: false,
+    slidesToShow: 1,
+    adaptiveHeight: true,
+    centerMode: true,
+    centerPadding: "0px",
+  };
 
   return (
-    <div css={sliderContainerStyle}>
-      <div
-        css={{
-          display: "flex",
-          transition: "transform 0.5s ease",
-          transform: `translateX(-${currentIndex * 100}%)`,
-        }}>
-        {images.map((image, index) => (
-          <div key={index} css={slideStyle}>
-            <Image
-              src={image}
-              alt={`Banner ${index}`}
-              width={712}
-              height={300}
-            />
-          </div>
-        ))}
-      </div>
+    <div
+      style={{
+        width: "711px",
+        margin: "auto",
+        textAlign: "center",
+        padding: "0px 8px",
+      }}>
+      <Slider {...settings}>
+        <div>
+          <Image src="/webTop1.png" alt="Slide 1" width={711} height={250} />
+        </div>
+        <div>
+          <Image src="/webTop2.png" alt="Slide 2" width={711} height={250} />
+        </div>
+        <div>
+          <Image src="/webTop3.png" alt="Slide 3" width={711} height={250} />
+        </div>
+        <div>
+          <Image src="/webTop4.png" alt="Slide 4" width={711} height={250} />
+        </div>
+      </Slider>
     </div>
   );
 }
-const sliderContainerStyle = css({
-  position: "relative",
-  overflow: "hidden",
-});
-
-const slideStyle = css({
-  flex: "0 0 auto",
-});
