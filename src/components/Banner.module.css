@@ -1,0 +1,11 @@
+.dot {
+  width: 20px; /* ドットの幅を調整 */
+  height: 20px; /* ドットの高さを調整 */
+  background-color: rgb(199, 198, 198); /* ドットの背景色を赤に設定 */
+  border-radius: 50%; /* ドットを円形に設定 */
+  display: inline-block;
+  margin: 0 5px; /* ドット間の間隔を設定 */
+  line-height: 20px; /* テキストの垂直方向の中央揃え */
+  text-align: center; /* テキストの水平方向の中央揃え */
+  color: rgb(240, 69, 69); /* テキストの色を白に設定 */
+}
