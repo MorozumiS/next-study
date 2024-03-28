@@ -5,7 +5,7 @@ export default function Item() {
   return (
     <div>
       <Header />
-      <ItemComponent />
+      <ItemComponent items={[]} />
     </div>
   );
 }
